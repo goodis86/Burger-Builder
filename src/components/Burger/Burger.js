@@ -1,9 +1,12 @@
 import React from "react";
-
+//import {withRouter} from 'react-router-dom';
+// we can wrap our burger while exporting it to access history, location, match etc. props
+// on our burger: export default withRouter(burger);
 import classes from "./Burger.css";
 import BurgerIngredient from "./BurgerIngredient/BurgerIngredient";
 
 const burger = (props) => {
+  console.log(props);
   let transformedIngredients = Object.keys(props.ingredients)
     .map((igKey) => {
       return [...Array(props.ingredients[igKey])].map((_, i) => {
