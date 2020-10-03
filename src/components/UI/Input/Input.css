@@ -18,9 +18,15 @@
     background-color: white;
     font: inherit;
     padding: 6px 10px;
+    box-sizing: border-box;
 }
 
-.InputElement :focus {
+.InputElement:focus {
     outline: none;
     background-color: #ccc;
+}
+
+.Invalid {
+    border: 1px solid red;
+    background-color: salmon;
 }
