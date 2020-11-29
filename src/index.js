@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
     order: orderReducer
 });
 
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk))); // allows us to have asynchronous action creators
 
 
 const app = (
