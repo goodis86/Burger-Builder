@@ -23,6 +23,20 @@ export const authFail = (error) => {
     };
 };
 
+export const logout = () => {
+    return {
+        type: actionTypes.AUTH_LOGOUT
+    };
+}
+
+export const checkAuthTimeout = (expirationTime) => {
+    return dispatch => {
+            setTimeout(() => {
+                dispatch(logout());
+            }, expirationTime);
+    };
+};
+
 export const auth = (email, password, isSignup) => {
     return dispatch => {
         dispatch(authStart());
@@ -41,11 +55,14 @@ export const auth = (email, password, isSignup) => {
         axios.post(url, authData)
         .then(response => {
             console.log(response);
+           // response.data.expiresIn = 7500;   this works just fine, we can alter our client auth status with ease!!!
+            //console.log(response, '[altered expiresIn ]');
             dispatch(authSuccess(response.data.idToken, response.data.localId));
+            dispatch(checkAuthTimeout(response.data.expiresIn));
         })
         .catch( err => {
             console.log(err);
-            dispatch(authFail(err));
+            dispatch(authFail(err.response.data.error));
         })
     };
 };
