@@ -1,5 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
-import {updateObject} from '../utility';
+import {updateObject} from '../../shared/utility';
 
 // utility function used to get rid of redundancy in our code!!!!
 //(copying old state, and updating with altered props, etc.)!!!!!
