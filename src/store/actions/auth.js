@@ -59,7 +59,7 @@ export const auth = (email, password, isSignup) => {
 
         axios.post(url, authData)
         .then(response => {
-            console.log(response);
+           // console.log(response);
            // response.data.expiresIn = 7500;   this works just fine, we can alter our client auth status with ease!!!
             //console.log(response, '[altered expiresIn ]');
             
@@ -72,7 +72,7 @@ export const auth = (email, password, isSignup) => {
             dispatch(checkAuthTimeout(response.data.expiresIn));
         })
         .catch( err => {
-            console.log(err);
+            //console.log(err);
             dispatch(authFail(err.response.data.error));
         })
     };

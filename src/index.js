@@ -15,7 +15,7 @@ import authReducer from './store/reducers/auth';
 //import order from './components/CheckoutSummary/Order';
 
 
-const composeEnhancers = process.env.NODE_ENV === 'development'?  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
+const composeEnhancers = (process.env.NODE_ENV === 'development'?  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null) || compose;
 
 const rootReducer = combineReducers({
     burgerBuilder: burgerBuilderReducer,
@@ -23,7 +23,8 @@ const rootReducer = combineReducers({
     auth: authReducer
 });
 
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk))); // allows us to have asynchronous action creators
+// allows us to have asynchronous action creators
+const store = createStore (rootReducer, composeEnhancers(applyMiddleware(thunk))); 
 
 
 const app = (
