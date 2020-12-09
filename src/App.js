@@ -6,9 +6,6 @@ import asyncComponent from './hoc/asyncComponent/asyncComponent';
 
 import Layout from './hoc/Layout/Layout';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
-
-//import Orders from './containers/Orders/Orders';
-//import Auth from './containers/Auth/Auth';
 import Logout from './containers/Auth/Logout/Logout';
 import * as actions from './store/actions/index';
 
@@ -44,7 +41,7 @@ class App extends Component {
         <Switch>
           <Route path="/checkout" component={asyncCheckout} />
           <Route path="/orders" component={asyncOrders} />
-          <Route path="logout" component={Logout}/>
+          <Route path="/logout" component= { Logout } />
           <Route path="/auth" component={asyncAuth} />
           <Route path="/" exact component={BurgerBuilder} />
           <Redirect to="/"/>
