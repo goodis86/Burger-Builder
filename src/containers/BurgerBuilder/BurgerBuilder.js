@@ -13,7 +13,7 @@ import * as actions from "../../store/actions/index";
 
 import axios from "../../axios-orders";
 
-class BurgerBuilder extends Component {
+export class BurgerBuilder extends Component {     // by exporting this class we strip out connection to redux and make it easy to test our BugerBuilder component!!!!
   //    constructor(props) {          alternative to state manipulations to what's below!!!
   //        super(props);
   //        this.state = {}
