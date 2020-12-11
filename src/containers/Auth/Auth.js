@@ -98,7 +98,7 @@ class Auth extends Component {
         ));
             if (this.props.loading) {
                 form = <Spinner/>;
-                console.log('[spinner is here]');
+               // console.log('[spinner is here]');
             }
 
             let errorMessage = null;
