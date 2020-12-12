@@ -4,7 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
+
 
 
         {
@@ -12,7 +12,15 @@
             "request": "launch",
             "name": "Launch Chrome against localhost",
             "url": "http://localhost:3000",
-            "webRoot": "src/index.js"
+            "webRoot": "src/index.js",
+            "smartStep": true,
+            "skipFiles": [
+                "c:/Users/fgudi/Desktop/REACT/burger-builder/node_modules/**/*.js",
+                "c:/Users/fgudi/Desktop/REACT/burger-builder/public/**/*.js",
+                "c:/Users/fgudi/Desktop/REACT/burger-builder/config/**/*.js",
+                "c:/Users/fgudi/Desktop/REACT/burger-builder/webpack/**/*"
+
+            ]
         }
     ]
 }
