@@ -16,8 +16,8 @@ import authReducer from './store/reducers/auth';
 
 // if our evnironmental variable NODE_ENV is development = we allow redux dev tools, 
 // if we are not in development mode - redux dev tools will not be available for security reasons!!!!!!
-const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
-
+// const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
+const composeEnhancers = (process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null) || compose;
 
 
 const rootReducer = combineReducers({
