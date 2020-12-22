@@ -13,8 +13,8 @@ import registerServiceWorker from './registerServiceWorker';
 import burgerBuilderReducer from './store/reducers/burgerBuilder';
 import orderReducer from './store/reducers/order';
 import authReducer from './store/reducers/auth';
-import { logoutSaga } from './store/sagas/auth';
-import { logout } from './store/actions';
+import { watchAuth } from './store/sagas/index';
+//import { logout } from './store/actions';
 //import order from './components/CheckoutSummary/Order';
 
 // if our evnironmental variable NODE_ENV is development = we allow redux dev tools, 
@@ -36,7 +36,7 @@ const store = createStore (rootReducer, composeEnhancers(
     applyMiddleware(thunk, sagaMiddleware)
     )); 
 
-    sagaMiddleware.run(logoutSaga);
+    sagaMiddleware.run(watchAuth);
 
 const app = (
     <Provider store = {store}>
