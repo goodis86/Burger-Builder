@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, compose, combineReducers} from 'redux';
 import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 
 import './index.css';
 import App from './App';
@@ -12,6 +13,8 @@ import registerServiceWorker from './registerServiceWorker';
 import burgerBuilderReducer from './store/reducers/burgerBuilder';
 import orderReducer from './store/reducers/order';
 import authReducer from './store/reducers/auth';
+import { logoutSaga } from './store/sagas/auth';
+import { logout } from './store/actions';
 //import order from './components/CheckoutSummary/Order';
 
 // if our evnironmental variable NODE_ENV is development = we allow redux dev tools, 
@@ -26,9 +29,14 @@ const rootReducer = combineReducers({
     auth: authReducer
 });
 
-// allows us to have asynchronous action creators
-const store = createStore (rootReducer, composeEnhancers(applyMiddleware(thunk))); 
+const sagaMiddleware = createSagaMiddleware(); 
 
+// allows us to have asynchronous action creators
+const store = createStore (rootReducer, composeEnhancers(
+    applyMiddleware(thunk, sagaMiddleware)
+    )); 
+
+    sagaMiddleware.run(logoutSaga);
 
 const app = (
     <Provider store = {store}>
