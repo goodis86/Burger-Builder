@@ -43,11 +43,14 @@ const auth = props => {
     })
     const [isSignUp, setIsSignUp] = useState(true);
 
+    const {buildingBurger, authRedirectPath, onSetAuthRedirectPath} = props; // retracting all these 
+    // values from props and storing them in separate constants with same name!
+
    useEffect(() => {
-    if (!props.buildingBurger && props.authRedirectPath !== '/') {
-        props.onSetAuthRedirectPath();
+    if (!buildingBurger && authRedirectPath !== '/') {
+        onSetAuthRedirectPath();
    }
-}, []);
+}, [buildingBurger, authRedirectPath, onSetAuthRedirectPath]);  // added them as dependencies...
            
     
 

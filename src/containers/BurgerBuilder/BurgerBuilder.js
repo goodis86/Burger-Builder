@@ -21,9 +21,11 @@ const burgerBuilder = props => {     // by exporting this class we strip out con
 
   const [buyMode, setBuyMode] = useState(false);
 
+  const {onInitIngredients} = props;
+
   useEffect(() => {
-    props.onInitIngredients();
-  }, []);
+    onInitIngredients();
+  }, [onInitIngredients]);
 
    // console.log(props);
       // we execute onInitIngredients here to have our state filled with ingredients!!!

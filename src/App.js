@@ -20,9 +20,10 @@ const Auth = React.lazy(() => {
 });
 
 const app = (props) => {
-  useEffect(() => {
-    props.onTryAutoSignup();
-  }, []); // we pass an empty array of dependencies to make sure we just render this component once!
+  const {onTryAutoSignup} = props;  // destructuring our props to pull the key for onTryAutoSignup
+  useEffect(() => {                 // so we can define it as a dependency!
+    onTryAutoSignup();
+  }, [onTryAutoSignup]); 
 
   let routes = (
     <Switch>
