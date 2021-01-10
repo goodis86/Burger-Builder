@@ -5,7 +5,7 @@ import Aux from '../Auxiliary/Auxiliary';
 import classes from './Layout.css';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
-import sideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
+//import sideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 
 const layout = props => {
   const [sideDrawerisVisible, setSideDrawerIsVisible] = useState(false);
